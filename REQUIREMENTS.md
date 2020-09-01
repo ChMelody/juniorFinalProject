@@ -22,17 +22,17 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [ ] Write a route to serve up all projects
 
 - Write a `robots` model with the following information:
-  - [ ] name - not empty or null
-  - [ ] fuelType - can be one of gas, diesel, or electric (defaults to electric)
-  - [ ] fuelLevel - can be a decimal value between 0 and 100 (defaults to 100)
-  - [ ] imageUrl - with a default value
+  - [x] name - not empty or null
+  - [x] fuelType - can be one of gas, diesel, or electric (defaults to electric)
+  - [x] fuelLevel - can be a decimal value between 0 and 100 (defaults to 100)
+  - [x] imageUrl - with a default value
 - Write a `projects` model with the following information:
-  - [ ] title - not empty or null
-  - [ ] deadline - a date
-  - [ ] priority - an integer between 1 and 10
-  - [ ] completed - boolean value, defaults to false
-  - [ ] description - extremely large text
-- [ ] Robots may be associated with many projects. Likewise, projects may be associated with many robots.
+  - [x] title - not empty or null
+  - [x] deadline - a date
+  - [x] priority - an integer between 1 and 10
+  - [x] completed - boolean value, defaults to false
+  - [x] description - extremely large text
+- [x] Robots may be associated with many projects. Likewise, projects may be associated with many robots.
 
 #### Seed
 - [ ] Running the seed file creates projects and robots for demonstration purposes
