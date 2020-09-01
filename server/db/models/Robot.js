@@ -6,9 +6,8 @@ module.exports = db.define('robot', {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            isNull: {
-                msg: 'Robot name cannot be null'
-            }
+            notEmpty: true,
+            notNull: true
         }
     },
     imageUrl: {
@@ -16,11 +15,11 @@ module.exports = db.define('robot', {
         defaultValue: '/images/r2d2.png'
     },
     fuelType: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('gas', 'diesel', 'electric'),
         defaultValue: 'electric'
     },
     fuelLevel: {
-        type: Sequelize.DECIMAL(10, 2),
+        type: Sequelize.FLOAT,
         allowNull: false,
         validate: {
             min: 0,

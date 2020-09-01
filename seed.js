@@ -1,7 +1,7 @@
 const { green, red } = require('chalk');
 const { db } = require('./server/db');
 
-const Project = require('./server/db/models/Project')
+// const Project = require('./server/db/models/Project')
 const Robot = require('./server/db/models/Robot')
 
 // fake data
@@ -20,7 +20,24 @@ const robots = [{
   imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdwLx2vECwe_iU3dbCLuPnW28Ncz063KZzdw&usqp=CAU',
   fuelType: 'electric',
   fuelLevel: 100
+}, {
+  name: 'R2-D2',
+  imageUrl: '/images/r2d2.png'
+}, {
+  name: 'WALL-E',
+  imageUrl: '/images/walle.jpeg'
 }]
+
+// const robots = [
+//   { name: 'R2-D2', imageUrl: '/images/r2d2.png' },
+//   { name: 'WALL-E', imageUrl: '/images/walle.jpeg' },
+// ];
+
+// const projects = [
+//   { title: 'Build barn', description: 'Lorem Ipsum' },
+//   { title: 'Discover love', completed: true, deadline: anHourFromNow },
+//   { title: 'Open the pod bay doors', priority: 10 },
+// ];
 
 const seed = async () => {
   try {

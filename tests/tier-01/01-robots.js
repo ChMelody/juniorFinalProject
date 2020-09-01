@@ -38,7 +38,7 @@ import AllRobots, {
 import AllProjects from '../../app/components/AllProjects';
 import Routes from '../../app/components/Routes';
 
-describe('Tier One: Robots', () => {
+describe.only('Tier One: Robots', () => {
   // We'll use this array of robots as dummy data for testing purposes
   const robots = [
     { id: 1, name: 'R2-D2', imageUrl: '/images/r2d2.png' },
@@ -51,7 +51,7 @@ describe('Tier One: Robots', () => {
     mockAxios.onGet('/api/robots').replyOnce(200, robots);
   });
 
-  describe('<AllRobots /> component', () => {
+  xdescribe('<AllRobots /> component', () => {
     const getRobotsSpy = sinon.spy();
     afterEach(() => {
       getRobotsSpy.resetHistory();
@@ -120,7 +120,7 @@ describe('Tier One: Robots', () => {
     });
   });
 
-  describe('Redux', () => {
+  xdescribe('Redux', () => {
     let fakeStore;
     beforeEach(() => {
       fakeStore = mockStore(initialState);
@@ -170,7 +170,7 @@ describe('Tier One: Robots', () => {
     });
   });
 
-  describe('Connect: react-redux', () => {
+  xdescribe('Connect: react-redux', () => {
     // This test is expecting your component to dispatch a thunk after it mounts
     // Remember that getRobots prop from an earlier test? Now's a good time
     // for a mapDispatch.
@@ -211,7 +211,7 @@ describe('Tier One: Robots', () => {
     });
   });
 
-  describe('Navigation', () => {
+  xdescribe('Navigation', () => {
     beforeEach(() => {
       sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
         return <div>{children}</div>;
@@ -240,7 +240,7 @@ describe('Tier One: Robots', () => {
     });
   });
 
-  xdescribe('Express API', () => {
+  describe('Express API', () => {
     // Let's test our Express routes WITHOUT actually using the database.
     // By replacing the findAll methods on our Sequelize models with a spy,
     // we can ensure that our API tests won't fail just because
@@ -255,7 +255,7 @@ describe('Tier One: Robots', () => {
 
     // Consider writing your GET route in server/api/robots.js. And don't
     // forget to apply the express router to your API in server/api/index.js!
-    xit('GET /api/robots responds with all robots', async () => {
+    it('GET /api/robots responds with all robots', async () => {
       const response = await agent.get('/api/robots').expect(200);
       expect(response.body).to.deep.equal(robots);
       expect(Robot.findAll.calledOnce).to.be.equal(true);

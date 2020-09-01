@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AllProjects from './AllProjects'
+import AllRobots from './AllRobots'
 
 const Routes = () => {
   return (
