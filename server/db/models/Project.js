@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../database')
 
-module.exports = db.define('projects', {
+module.exports = db.define('project', {
     title: {
         type: Sequelize.STRING,
         allowNull: false,

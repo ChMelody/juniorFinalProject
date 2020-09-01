@@ -8,9 +8,13 @@ const router = require('express').Router()
 //
 // For your `/api/puppies` routes:
 // router.use('/puppies', require('./puppies'))
-//
+// homepage, listing all robots
+router.use('/robots', require('./robots'))
+router.use('/projects', require('./projects'))
+
 // And for your `/api/kittens` routes:
 // router.use('/kittens', require('./kittens'))
+
 
 // If someone makes a request that starts with `/api`,
 // but you DON'T have a corresponding router, this piece of

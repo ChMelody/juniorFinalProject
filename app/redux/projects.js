@@ -1,4 +1,10 @@
-export const setProjects = () => {};
+import axios from 'axios'
+
+// export const setProjects = () => {
+//   return async (dispatch) => {
+//     const {data} = await axios.get()
+//   }
+// };
 
 export const fetchProjects = () => {};
 

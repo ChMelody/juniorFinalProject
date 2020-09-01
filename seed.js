@@ -1,11 +1,34 @@
 const { green, red } = require('chalk');
-const { db, Project, Robot } = require('./server/db');
+const { db } = require('./server/db');
+
+const Project = require('./server/db/models/Project')
+const Robot = require('./server/db/models/Robot')
+
+// fake data
+const robots = [{
+  name: 'Terminator',
+  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSc31R-FBk8W8uHqASX4SgmSWA_i6xtol4A9w&usqp=CAU',
+  fuelType: 'electric',
+  fuelLevel: 90.99
+}, {
+  name: 'SuperDog',
+  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4II4ail5V-cpt6tdmlyVXF_dR19zLYt6gwQ&usqp=CAU',
+  fuelType: 'electric',
+  fuelLevel: 80.00
+}, {
+  name: 'BlackPanther',
+  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdwLx2vECwe_iU3dbCLuPnW28Ncz063KZzdw&usqp=CAU',
+  fuelType: 'electric',
+  fuelLevel: 100
+}]
 
 const seed = async () => {
   try {
     await db.sync({ force: true });
 
-    // seed your database here!
+    await Promise.all(robots.map(robot => {
+      return Robot.create(robot)
+    }))
 
   } catch (err) {
     console.log(red(err));
