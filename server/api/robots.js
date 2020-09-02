@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Robot } = require('../db/')
+const { Robot } = require('../db/index')
 
 router.get('/', async(req, res, next) => {
     try {

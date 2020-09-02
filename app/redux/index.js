@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import projectsReducer from './projects';
-import robotsReducer from './robots';
+import projectsReducer from './projectsReducer';
+import robotsReducer from './robotsReducer';
 
 const appReducer = combineReducers({
   projects: projectsReducer,

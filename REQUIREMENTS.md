@@ -18,7 +18,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 #### Backend
 
-- [ ] Write a route to serve up all robots
+- [x] Write a route to serve up all robots
 - [ ] Write a route to serve up all projects
 
 - Write a `robots` model with the following information:

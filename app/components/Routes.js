@@ -7,14 +7,21 @@ const Routes = () => {
   return (
     <Router>
       <div>
-        <nav>Welcome!</nav>
+        <nav>
+          Welcome!
+          <ul>
+            <Link to="/robots">Robots</Link>
+          </ul>
+          <ul>
+            <Link to="/projects">Projects</Link>
+          </ul>
+        </nav>
         <main>
-          <h1>
-            Welcome to StackBot Project Management: your robot employees are
-            awaiting assignments!
-          </h1>
-          <p>This seems like a nice place to get started with some Routes!</p>
+          <h1>Welcome to StackBot Project Management</h1>
+            <h3>Your robot employees are awaiting assignments!</h3>
         </main>
+          <Route exact path="/" component={AllRobots} />
+          <Route exact path="/projects" component={AllProjects} />
       </div>
     </Router>
   );

@@ -18,7 +18,7 @@ const initialState = {
 };
 
 import mockAxios from '../mock-axios';
-import { setRobots, fetchRobots } from '../../app/redux/robots';
+import { setRobots, fetchRobots } from '../../app/redux/robotsReducer';
 
 import appReducer from '../../app/redux';
 import { createStore } from 'redux';
@@ -51,7 +51,7 @@ describe.only('Tier One: Robots', () => {
     mockAxios.onGet('/api/robots').replyOnce(200, robots);
   });
 
-  xdescribe('<AllRobots /> component', () => {
+  describe.only('<AllRobots /> component', () => {
     const getRobotsSpy = sinon.spy();
     afterEach(() => {
       getRobotsSpy.resetHistory();
@@ -59,7 +59,7 @@ describe.only('Tier One: Robots', () => {
 
     // This test is interested in the unconnected AllRobots component. It is
     // exported as a named export in app/components/AllRobots.js
-    xit('renders the robots passed in as props', () => {
+    it('renders the robots passed in as props', () => {
       const wrapper = mount(
         <UnconnectedAllRobots robots={robots} getRobots={getRobotsSpy} />
       );
@@ -74,7 +74,7 @@ describe.only('Tier One: Robots', () => {
       ]);
     });
 
-    xit('renders DIFFERENT robots passed in as props', () => {
+    it('renders DIFFERENT robots passed in as props', () => {
       const differentRobots = [
         {
           id: 3,

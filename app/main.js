@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Routes from './components/Routes';
 
+// console.log('what is my store state: ', store.getState()) -> {projects: Array(0), robots: Array(0)}
 render(
   <Provider store={store}>
     <Routes />

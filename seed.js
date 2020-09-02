@@ -1,7 +1,7 @@
 const { green, red } = require('chalk');
 const { db } = require('./server/db');
 
-// const Project = require('./server/db/models/Project')
+const Project = require('./server/db/models/Project')
 const Robot = require('./server/db/models/Robot')
 
 // fake data
@@ -28,23 +28,29 @@ const robots = [{
   imageUrl: '/images/walle.jpeg'
 }]
 
-// const robots = [
-//   { name: 'R2-D2', imageUrl: '/images/r2d2.png' },
-//   { name: 'WALL-E', imageUrl: '/images/walle.jpeg' },
-// ];
 
-// const projects = [
-//   { title: 'Build barn', description: 'Lorem Ipsum' },
-//   { title: 'Discover love', completed: true, deadline: anHourFromNow },
-//   { title: 'Open the pod bay doors', priority: 10 },
-// ];
+const projects = [
+  { title: 'Build barn', description: 'Lorem Ipsum' },
+  { title: 'Discover love', completed: true},
+  { title: 'Open the pod bay doors', priority: 10 },
+];
 
 const seed = async () => {
   try {
     await db.sync({ force: true });
 
+    // const robotPromise = robots.map(robot => Robot.create(robot))
+    // const projectPromise = projects.map(project => Project.create(project))
+    
+    // await Promise.all([
+    //   robotPromise,
+    //   projectPromise
+    // ])
     await Promise.all(robots.map(robot => {
       return Robot.create(robot)
+    }))
+    await Promise.all(projects.map(project => {
+      return Project.create(project)
     }))
 
   } catch (err) {
