@@ -20,7 +20,7 @@ const Routes = () => {
           <h1>Welcome to StackBot Project Management</h1>
             <h3>Your robot employees are awaiting assignments!</h3>
         </main>
-          <Route exact path="/" component={AllRobots} />
+          <Route exact path="/robots" component={AllRobots} />
           <Route exact path="/projects" component={AllProjects} />
       </div>
     </Router>
