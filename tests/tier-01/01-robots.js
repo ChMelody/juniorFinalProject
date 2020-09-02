@@ -105,14 +105,14 @@ describe.only('Tier One: Robots', () => {
       ]);
     });
 
-    xit('*** renders "No Robots" if this.props.robots is empty or undefined', () => {
+    it('*** renders "No Robots" if this.props.robots is empty or undefined', () => {
       throw new Error('replace this error with your own test');
     });
 
     // In a later step, we'll create a thunk, and map that thunk to AllRobots
     // as getRobots. For right now, we just need to be sure the component
     // calls it after it mounts.
-    xit('calls this.props.getRobots after mount', async () => {
+    it('calls this.props.getRobots after mount', async () => {
       mount(<UnconnectedAllRobots robots={robots} getRobots={getRobotsSpy} />);
       await waitForExpect(() => {
         expect(getRobotsSpy).to.have.been.called;
@@ -120,20 +120,20 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  xdescribe('Redux', () => {
+  describe('Redux', () => {
     let fakeStore;
     beforeEach(() => {
       fakeStore = mockStore(initialState);
     });
     describe('set/fetch robots', () => {
-      xit('setRobots action creator', () => {
+      it('setRobots action creator', () => {
         expect(setRobots(robots)).to.deep.equal({
           type: 'SET_ROBOTS',
           robots,
         });
       });
 
-      xit('fetchRobots thunk creator returns a thunk that GETs /api/robots', async () => {
+      it('fetchRobots thunk creator returns a thunk that GETs /api/robots', async () => {
         await fakeStore.dispatch(fetchRobots());
         const [getRequest] = mockAxios.history.get;
         expect(getRequest).to.not.equal(undefined);
@@ -153,11 +153,11 @@ describe.only('Tier One: Robots', () => {
         testStore = createStore(appReducer);
       });
 
-      xit('*** returns the initial state by default', () => {
+      it('*** returns the initial state by default', () => {
         throw new Error('replace this error with your own test');
       });
 
-      xit('reduces on SET_ROBOTS action', () => {
+      it('reduces on SET_ROBOTS action', () => {
         const action = { type: 'SET_ROBOTS', robots };
 
         const prevState = testStore.getState();
@@ -170,11 +170,11 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  xdescribe('Connect: react-redux', () => {
+  describe('Connect: react-redux', () => {
     // This test is expecting your component to dispatch a thunk after it mounts
     // Remember that getRobots prop from an earlier test? Now's a good time
     // for a mapDispatch.
-    xit('initializes robots from the server when the application loads the /robots route', async () => {
+    it('initializes robots from the server when the application loads the /robots route', async () => {
       const reduxStateBeforeMount = store.getState();
       expect(reduxStateBeforeMount.robots).to.deep.equal([]);
       mount(
@@ -192,7 +192,7 @@ describe.only('Tier One: Robots', () => {
 
     // This test is expecting your component to render the robots from the
     // Redux store. Now's a good time for a mapState.
-    xit('<AllRobots /> renders robots from the Redux store', async () => {
+    it('<AllRobots /> renders robots from the Redux store', async () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/robots']}>
@@ -211,7 +211,7 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  xdescribe('Navigation', () => {
+  describe('Navigation', () => {
     beforeEach(() => {
       sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
         return <div>{children}</div>;
@@ -223,7 +223,7 @@ describe.only('Tier One: Robots', () => {
 
     // This test expects that you've set up a Route for AllRobots.
     // You should take a look at app/components/Routes.js
-    xit('renders <AllRobots /> at /robots', () => {
+    it('renders <AllRobots /> at /robots', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/robots']}>
@@ -235,7 +235,7 @@ describe.only('Tier One: Robots', () => {
       expect(wrapper.find(AllProjects)).to.have.length(0);
     });
 
-    xit('*** navbar has links to "/robots" and "/" (homepage)', () => {
+    it('*** navbar has links to "/robots" and "/" (homepage)', () => {
       throw new Error('replace this error with your own test');
     });
   });

@@ -9,18 +9,15 @@ import { fetchRobots } from '../redux/robotsReducer';
 export class AllRobots extends React.Component {
   componentDidMount(){
     this.props.fetchRobots()
-    // console.log('??:', this.props)
-
   }
   render() {
     const robots = this.props.robots
-    // console.log('uuu', robots)
     return (
       <ul>
         {robots &&
           robots.map(robot => (
               <Link to={`/robots/${robot.id}`} key={robot.id}>
-                <div className="robots">
+                <div key={robot.id} className="robots">
                   <img src={robot.imageUrl} />
                   {robot.name}
                 </div>

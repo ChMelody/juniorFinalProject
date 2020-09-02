@@ -18,7 +18,7 @@ const initialState = {
 };
 
 import mockAxios, { anHourFromNow } from '../mock-axios';
-import { setProjects, fetchProjects } from '../../app/redux/projects';
+import { setProjects, fetchProjects } from '../../app/redux/projectsReducer';
 
 import appReducer from '../../app/redux';
 import { createStore } from 'redux';

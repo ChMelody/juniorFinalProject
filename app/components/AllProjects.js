@@ -13,19 +13,20 @@ export class AllProjects extends React.Component {
   }
 
   render() {
-    const projects = this.props.robots
+    const projects = this.props.projects
+    console.log('fetchPRoject?? ', projects)
     return (
-      <ul>
+      <div>
         {projects &&
           projects.map(project => (
             <div key={project.id}>
-                <h4>{project.title}</h4>
-                <ul>{project.deadline}</ul>
-                <ul>{project.priority}</ul>
-                <ul>{project.completed}</ul>
+                <h4>Project: {project.title}</h4>
+                <ul>Deadline: {project.deadline}</ul>
+                <ul>Priority: {project.priority}</ul>
+                <ul>Completed: {project.completed}</ul>
             </div>
           ))}
-      </ul>
+      </div>
     )
   }
 }
