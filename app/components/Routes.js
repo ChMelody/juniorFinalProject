@@ -2,13 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AllProjects from './AllProjects'
 import AllRobots from './AllRobots'
+import SingleRobot from './SingleRobot'
 
 const Routes = () => {
   return (
     <Router>
       <div>
         <nav>
-          Welcome!
+          <Link to="/">Home </Link>
           <ul>
             <Link to="/robots">Robots</Link>
           </ul>
@@ -22,6 +23,7 @@ const Routes = () => {
         </main>
           <Route exact path="/robots" component={AllRobots} />
           <Route exact path="/projects" component={AllProjects} />
+          <Route path="/robots/:id" component={SingleRobot} />
       </div>
     </Router>
   );

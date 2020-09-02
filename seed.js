@@ -20,12 +20,6 @@ const robots = [{
   imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdwLx2vECwe_iU3dbCLuPnW28Ncz063KZzdw&usqp=CAU',
   fuelType: 'electric',
   fuelLevel: 100
-}, {
-  name: 'R2-D2',
-  imageUrl: '/images/r2d2.png'
-}, {
-  name: 'WALL-E',
-  imageUrl: '/images/walle.jpeg'
 }]
 
 

@@ -10,6 +10,8 @@ const router = require('express').Router()
 // router.use('/puppies', require('./puppies'))
 // homepage, listing all robots
 router.use('/robots', require('./robots'))
+router.use('/robots/:id', require('./robots'))
+
 router.use('/projects', require('./projects'))
 
 // And for your `/api/kittens` routes:
