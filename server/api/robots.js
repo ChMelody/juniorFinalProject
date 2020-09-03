@@ -19,4 +19,10 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+router.post('/', (req, res, next) => {
+    Robot.create(req.body)
+      .then(robot => res.json(robot))
+      .catch(next)
+  })
+
 module.exports = router
