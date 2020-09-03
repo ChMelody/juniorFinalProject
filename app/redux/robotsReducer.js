@@ -34,9 +34,9 @@ const robotsReducer = (state = initialState, action) => {
 export default robotsReducer
 
 
-// extras 
+// extras
 // export const setRobots = robots => ({
-  
+
 // })
 
 // export const getRobotById = data => ({

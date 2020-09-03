@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { fetchRobots } from '../redux/robotsReducer';
 
 

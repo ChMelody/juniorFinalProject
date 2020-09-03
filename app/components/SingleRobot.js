@@ -12,10 +12,14 @@ class SingleRobot extends React.Component {
   render() {
     const {robot} = this.props.singleRobot
     return (
-        <div>
+      <div>
+        {robot && (
+          <div>
             <h3>{robot.name}</h3>
             <img src={robot.imageUrl} />
-        </div>
+          </div>
+        )}
+      </div>
     )
   }
 }

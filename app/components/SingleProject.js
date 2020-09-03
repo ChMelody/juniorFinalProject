@@ -5,20 +5,30 @@ import { fetchProjectById } from '../redux/singleProjectReducer';
 
 
 class SingleProject extends React.Component {
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         priority: low
+    //     }
+    // }
     componentDidMount(){
         this.props.fetchProjectById(this.props.match.params.id)
     }
 
   render() {
     const {project} = this.props.singleProject
+    console.log('project: ', project)
     return (
         <div>
-            <h4>
-                Project: {project.title}
-            </h4>
-                <ul>Deadline: {project.deadline}</ul>
-                <ul>Priority: {project.priority}</ul>
-                <ul>Completed: {project.completed}</ul>
+            {project && (
+                <div>
+                    <h4>Project: {project.title}</h4>
+                    <ul>Deadline: {project.deadline}</ul>
+                    <ul>Priority: {project.priority}</ul>
+                    <ul>Status: {(project.completed && 'Completed!') || 'Not Complete'}
+                    </ul>
+                </div>
+            )}
         </div>
     )
   }

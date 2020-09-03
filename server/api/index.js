@@ -13,7 +13,7 @@ router.use('/robots', require('./robots'))
 router.use('/robots/:id', require('./robots'))
 
 router.use('/projects', require('./projects'))
-
+router.use('/projects/:id', require('./projects'))
 // And for your `/api/kittens` routes:
 // router.use('/kittens', require('./kittens'))
 

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AllProjects from './AllProjects'
 import AllRobots from './AllRobots'
 import SingleRobot from './SingleRobot'
+import SingleProject from './SingleProject'
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
           <Route exact path="/robots" component={AllRobots} />
           <Route exact path="/projects" component={AllProjects} />
           <Route path="/robots/:id" component={SingleRobot} />
+          <Route path="/projects/:id" component={SingleProject} />
       </div>
     </Router>
   );

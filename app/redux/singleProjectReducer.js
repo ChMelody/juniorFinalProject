@@ -7,7 +7,7 @@ export const fetchProjectById = id => {
       const { data } = await axios.get(`/api/projects/${id}`)
       dispatch({
         type: 'GET_PROJECT_BY_ID',
-        robot: data
+        project: data
       })
     } catch (error) {
       console.error(error)
