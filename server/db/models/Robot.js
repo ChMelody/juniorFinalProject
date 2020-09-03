@@ -12,7 +12,7 @@ module.exports = db.define('robot', {
     },
     imageUrl: {
         type: Sequelize.STRING,
-        defaultValue: '/images/r2d2.png'
+        defaultValue: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRLj3TDBHiTbQYel0FsqfHTzvkNJrnArXeA2g&usqp=CAU'
     },
     fuelType: {
         type: Sequelize.ENUM('gas', 'diesel', 'electric'),

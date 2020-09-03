@@ -5,7 +5,7 @@ export default class CreateRobot extends React.Component {
     constructor() {
         super()
         this.state = {
-            robotName: '',
+            name: '',
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -17,17 +17,24 @@ export default class CreateRobot extends React.Component {
         })
     }
 
-    handleSubmit (event) {
+    async handleSubmit (event) {
         event.preventDefault()
-        const res = await axios.post('/api/robots', )
+        try {
+            const res = await axios.post('/api/robots', this.state)
+            this.props.addRobot(res.data)
+            console.log('can I? ', res.data)
+        } catch (error) {
+            console.error(error)
+        }
+
     }
 
     render() {
-        const { robotName } = this.state
+        const { name } = this.state
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="robotName">Robot Name:</label>
-                <input onChange={this.handleChange} name="robotName" type="text" value={robotName} />
+                <label htmlFor="name">Robot Name:</label>
+                <input onChange={this.handleChange} name="name" type="text" value={name} />
 
                 <button type="submit">Add</button>
             </form>
