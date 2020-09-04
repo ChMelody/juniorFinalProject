@@ -4,6 +4,7 @@ import AllProjects from './AllProjects'
 import AllRobots from './AllRobots'
 import SingleRobot from './SingleRobot'
 import SingleProject from './SingleProject'
+import CreateRobot from './CreateRobot';
 
 const Routes = () => {
   return (
@@ -26,6 +27,7 @@ const Routes = () => {
           <Route exact path="/projects" component={AllProjects} />
           <Route path="/robots/:id" component={SingleRobot} />
           <Route path="/projects/:id" component={SingleProject} />
+          <Route path="/robots/addForm" component={CreateRobot} />
       </div>
     </Router>
   );

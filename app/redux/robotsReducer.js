@@ -5,16 +5,29 @@ export const fetchRobots = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('/api/robots')
-      // console.log('did axios fetch anything? ', data) -> nothing
       dispatch({
         type: 'GET_ALL_ROBOTS',
         robots: data
       })
     } catch (error) {
-      console.error(error)
+      console.error('Problem in fetchRobotsReducer: ', error)
     }
   }
 };
+
+export const addRobot = (robot) => {
+  return async (dispatch) => {
+    try {
+      const { addedRobot } = await axios.post('/api/robots/addForm', robot)
+      dispatch({
+        type: 'ADD_ROBOT',
+        robot: addedRobot
+      })
+    } catch (error) {
+      console.error('Problem in addRobotReducer: ', error)
+    }
+  }
+}
 
 
 const initialState = []
@@ -26,6 +39,8 @@ const robotsReducer = (state = initialState, action) => {
     case 'GET_ALL_ROBOTS':
       return action.robots
 
+    case 'ADD_ROBOT':
+      return [...state, action.robot]
     default:
       return state
   }
@@ -33,18 +48,3 @@ const robotsReducer = (state = initialState, action) => {
 
 export default robotsReducer
 
-
-// extras
-// export const setRobots = robots => ({
-
-// })
-
-// export const getRobotById = data => ({
-//   type: 'GET_ROBOT_BY_ID',
-//   data
-// })
-
-// export const addRobots = robots => ({
-//   type: 'ADD_ROBOT',
-//   robots
-// })

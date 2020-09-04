@@ -2,39 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { fetchRobots } from '../redux/robotsReducer';
-import CreateRobot from './CreateRobot'
-import axios from 'axios';
 
 
 // Notice that we're exporting the AllRobots component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllRobots extends React.Component {
-  constructor() {
+  constructor(){
     super()
-    this.state = {
-      robots: []
-    }
-    this.addRobot = this.addRobot.bind(this)
+    this.nextPath = this.nextPath.bind(this)
   }
   componentDidMount(){
     this.props.fetchRobots()
-    // console.log('THIS ', this.props.fetchRobots())
-    // await this.setState({robots: this.props.fetchRobots()})
-    // this.setState({robots: data})
   }
 
-  addRobot (robot) {
-    this.setState({
-      robots: [...this.state.robots, robot]
-    })
+  nextPath() {
+    this.props.history.push('/robots/addForm')
   }
+
   render() {
     const robots = this.props.robots
-    // console.log('oo', this.addRobot)
+    console.log(this.props.history.nextPath)
     return (
           <div>
-            <CreateRobot addRobot={this.addRobot} />
+              <button type="button" onClick={this.nextPath}>Add</button>
+
             <ul>
             {robots &&
               robots.map(robot => (
