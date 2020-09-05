@@ -20,7 +20,7 @@ export const fetchRobots = () => {
 };
 
 
-export const addRobot = (robot) => {
+export const addRobot = robot => {
   return async (dispatch) => {
     try {
       await axios.post('/api/robots', robot)
@@ -30,13 +30,28 @@ export const addRobot = (robot) => {
       })
       const { data } = await axios.get('api/robots')
       dispatch(setRobots(data))
-      console.log('test in thunk: ', data)
+      // console.log('test in thunk: ', data)
     } catch (error) {
       console.error('Problem in addRobotReducer: ', error)
     }
   }
 }
 
+export const deleteRobot = index => {
+  return async (dispatch) => {
+    try {
+      await axios.delete('/api/robots', index)
+      dispatch({
+        type: 'DELETE_ROBOT',
+        id: index
+      })
+      const { data } = await axios.get('api/robots')
+      dispatch(setRobots(data))
+    } catch (error) {
+      console.error('Problem deleting robot: ', error)
+    }
+  }
+}
 
 const initialState = []
 
@@ -49,6 +64,10 @@ export default function robotsReducer (state = initialState, action) {
 
     case 'ADD_ROBOT':
       return [...state, action.robot]
+
+    case 'DELETE_ROBOT':
+      return [...state].splice(action, 1)
+
     default:
       return state
   }

@@ -28,12 +28,15 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-// router.get('/assignedRobot', async (req, res, next) => {
-//     try {
-//         const robots = 
-//     } catch (error) {
-//         next(error)
-//     }
-// })
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const id = +req.params.id;
+        const projectToDelete = await Project.findByPk(id)
+        await projectToDelete.destroy()
+        res.sendStatus(204)
+    } catch (error) {
+        next(error)
+    }
+})
 
 module.exports = router

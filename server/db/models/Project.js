@@ -25,7 +25,7 @@ const Project = db.define('project', {
     },
     description: {
         type: Sequelize.TEXT,
-        defaultValue: '* No description was provided *'
+        defaultValue: '*** no description was provided ***'
     }
 })
 
