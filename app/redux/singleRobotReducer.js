@@ -10,7 +10,22 @@ export const fetchRobotById = id => {
         robot: data
       })
     } catch (error) {
-      console.error(error)
+      console.error('Problem with fetchRobotById', error)
+    }
+  }
+}
+
+export const updateReducer = (id, updatedRobot) => {
+  return async (dispatch) => {
+    try {
+      await axios.put(`/api/robots/${id}/updates`, updatedRobot)
+      dispatch({
+        type: 'UPDATE_ROBOT',
+        robot: updatedRobot
+      })
+      dispatch(fetchRobotById(id))
+    } catch (error) {
+      console.error('Problem with Robot updateReducer', error)
     }
   }
 }
@@ -26,6 +41,8 @@ const singleRobotReducer = (state = initialState, action) => {
     case 'GET_ROBOT_BY_ID':
       return {...state, robot: action.robot}
 
+    case 'UPDATE_ROBOT':
+      return {...state, robot: action.robot}
     default:
       return state
   }

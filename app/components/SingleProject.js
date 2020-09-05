@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchProjectById } from '../redux/singleProjectReducer';
+import { fetchProjectById, updateReducer } from '../redux/singleProjectReducer';
 
 
 class SingleProject extends React.Component {
