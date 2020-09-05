@@ -19,8 +19,9 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.post('/addRobot', (req, res, next) => {
-    Robot.create(req.body)
+
+router.post('/addRobot', async (req, res, next) => {
+    await Robot.create(req.body)
       .then(robot => res.json(robot))
       .catch(next)
 })

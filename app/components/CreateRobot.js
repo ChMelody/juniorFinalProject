@@ -4,25 +4,25 @@ import { addRobot, fetchRobots } from '../redux/robotsReducer'
 
 
 class CreateRobot extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             name: ''
         }
-        // this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // handleChange (event) {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
+    handleChange (event) {
+        this.setState({
+            name: event.target.value
+        })
+    }
 
-    handleSubmit (event) {
+    async handleSubmit (event) {
         event.preventDefault()
         try {
-            this.props.addRobot(this.state.name)
+            await this.props.addRobot(this.state)
             this.setState({ name: '' })
         } catch (error) {
             console.error('Problem in handleSubmit: ', error)
@@ -31,30 +31,26 @@ class CreateRobot extends React.Component {
     }
 
     render() {
-        console.log('CreateRobot page is rendering')
+        console.log('this.state', this.state)
         // console.log('addrobot', this.props.robots)
         return (
-            <div className='add-robot'>
-                <input
-                    type="text"
-                    // value={this.state.name}
-                    onChange={event => this.setState({ name: event.target.value})}
-                    // onKeyDown={this.handleSubmit}
-                />
-                <button onClick={ () => {
-                    this.props.addRobot(this.state);
-                    this.setState({ name: '' });
-                    }}
-                > Add Robot
-                </button>
+            <div>
+                <h1>POST Form</h1>
+                <form onSubmit={this.handleSubmit}>
+                <div>
+                    <input type="text" name="name" placeholder="Robot Name" onChange={this.handleChange} />
+                </div>
+                <br />
+                <button type="button">Add</button>
+                </form>
             </div>
         )
     }
 }
 
-const mapState = state => ({
-    robots: state.robots
-})
+// const mapState = state => ({
+//     robots: state.robots
+// })
 
 // make props
 const mapDispatch = dispatch => {

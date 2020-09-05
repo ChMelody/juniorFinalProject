@@ -17,12 +17,12 @@ export class AllRobots extends React.Component {
   }
 
   nextPath() {
-    this.props.history.push('/robots/addForm')
+    this.props.history.push('/robots/addRobot')
   }
 
   render() {
     const robots = this.props.robots
-    console.log(this.props.history.nextPath)
+    // console.log(this.props.history.nextPath)
     return (
           <div>
               <button type="button" onClick={this.nextPath}>Add</button>

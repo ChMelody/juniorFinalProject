@@ -11,7 +11,7 @@ const router = require('express').Router()
 // homepage, listing all robots
 router.use('/robots', require('./robots'))
 router.use('/robots/:id', require('./robots'))
-router.use('/robots/addForm', require('./robots'))
+router.use('/robots/addRobot', require('./robots'))
 
 router.use('/projects', require('./projects'))
 router.use('/projects/:id', require('./projects'))

@@ -18,7 +18,7 @@ export const fetchRobots = () => {
 export const addRobot = (robot) => {
   return async (dispatch) => {
     try {
-      const { addedRobot } = await axios.post('/api/robots/addForm', robot)
+      const { addedRobot } = await axios.post('/api/robots/addRobot', robot)
       dispatch({
         type: 'ADD_ROBOT',
         robot: addedRobot

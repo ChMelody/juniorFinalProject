@@ -27,7 +27,7 @@ const Routes = () => {
           <Route exact path="/projects" component={AllProjects} />
           <Route path="/robots/:id" component={SingleRobot} />
           <Route path="/projects/:id" component={SingleProject} />
-          <Route path="/robots/addForm" component={CreateRobot} />
+          <Route path="/robots/addRobot" component={CreateRobot} />
       </div>
     </Router>
   );

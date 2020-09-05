@@ -23,6 +23,7 @@ router.post('/addProject', async (req, res, next) => {
     Project.create(req.body)
       .then(project => res.json(project))
       .catch(next)
-})
+    }
+)
 
 module.exports = router
