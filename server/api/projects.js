@@ -44,11 +44,7 @@ router.put('/:id', async (req, res, next) => {
         const id = +req.params.id
         const findProject = await Project.findByPk(id)
         const updatedProject = await findProject.update(req.body)
-<<<<<<< Updated upstream
         res.send(updatedProject)
-=======
-        res.json(updatedProject)
->>>>>>> Stashed changes
     } catch (error) {
         next(error)
     }
