@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { fetchRobots } from '../redux/robotsReducer';
 
 
@@ -19,22 +19,22 @@ export class AllRobots extends React.Component {
 
   render() {
     const robots = this.props.robots
-    console.log('!!', this.props.robots)
+    // console.log('!!', this.props.robots)
     return (
-          <div>
-              <button type="button" >
-                <Link to="/addRobot">Add</Link>
-              </button>
-              <ul>
-              {(robots.length > 0) ?
-                robots.map(robot => (
-                    <Link to={`/robots/${robot.id}`} key={robot.id}>
-                        <img src={robot.imageUrl} />
-                        <div>{robot.name}</div>
-                    </Link>
-                )) : 'No Robots'}
-              </ul>
-          </div>
+      <div>
+          <button type="button" >
+            <Link to="/addRobot">Add</Link>
+          </button>
+          <ul>
+          {(robots.length > 0) ?
+            robots.map(robot => (
+                <Link to={`/robots/${robot.id}`} key={robot.id}>
+                    <img src={robot.imageUrl} />
+                    <div>{robot.name}</div>
+                </Link>
+            )) : 'No Robots'}
+          </ul>
+      </div>
     )
   }
 }

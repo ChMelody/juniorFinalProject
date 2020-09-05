@@ -16,7 +16,7 @@ class CreateRobot extends React.Component {
     handleChange(event) {
         this.setState({
           [event.target.name]: event.target.value,
-        });
+        })
       }
 
     handleSubmit (event) {
@@ -24,7 +24,6 @@ class CreateRobot extends React.Component {
         try {
             this.props.addNew(this.state)
             this.props.history.push('/robots')
-            // this.setState({ name: '' })
         } catch (error) {
             console.error('Problem in handleSubmit: ', error)
         }
@@ -40,7 +39,7 @@ class CreateRobot extends React.Component {
                 <form action="POST" onSubmit={this.handleSubmit}>
                     <label htmlFor="robot">
                         {!this.props.name && (
-                            <span>Robot name is required</span>
+                            <span>Robot name: </span>
                         )}
                     </label>
                     <input type="text" name="name" onChange={this.handleChange} />

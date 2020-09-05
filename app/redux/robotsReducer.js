@@ -42,7 +42,7 @@ const initialState = []
 
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
-const robotsReducer = (state = initialState, action) => {
+export default function robotsReducer (state = initialState, action) {
   switch (action.type) {
     case 'SET_ROBOTS':
       return action.robots
@@ -53,6 +53,3 @@ const robotsReducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default robotsReducer
-

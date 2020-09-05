@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const setProjects = projects => ({
-  type: 'GET_ALL_PROJECTS',
-  projects
+const setProjects = data => ({
+  type: 'SET_PROJECT',
+  projects: data
 })
 
 
@@ -12,10 +12,26 @@ export const fetchProjects = () => {
       const { data } = await axios.get('/api/projects')
       dispatch(setProjects(data))
     } catch (error) {
-      console.error(error)
+      console.error('Problem in fetchProjectReducer: ', error)
     }
   }
 };
+
+export const addProject = (project) => {
+  return async (dispatch) => {
+    try {
+      await axios.post('/api/projects', project)
+      dispatch({
+        type: 'ADD_PROJECT',
+        project: project
+      })
+      const { data } = await axios.get('api/projects')
+      dispatch(setProjects(data))
+    } catch (error) {
+      console.error('Problem in addProjectReducer: ', error)
+    }
+  }
+}
 
 const initialState = []
 
@@ -23,8 +39,11 @@ const initialState = []
 // added to the Redux store with combineReducers
 export default function projectsReducer(state = initialState, action) {
   switch (action.type) {
-    case 'GET_ALL_PROJECTS':
+    case 'SET_PROJECT':
       return action.projects
+
+    case 'ADD_PROJECT':
+      return [...state, action.project]
 
     default:
       return state

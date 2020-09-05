@@ -8,6 +8,7 @@ import { fetchProjects } from '../redux/projectsReducer'
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllProjects extends React.Component {
+
   componentDidMount() {
     this.props.fetchProjects()
   }
@@ -16,14 +17,18 @@ export class AllProjects extends React.Component {
     const projects = this.props.projects
     return (
       <div>
-        {(projects.length > 0) ?
-          projects.map(project => (
-            <Link to={`/projects/${project.id}`} key={project.id}>
-                <h4>Project: {project.title}</h4>
-                <p>deadline: {project.deadline}</p>
-                <br />
-            </Link>
-          )) : 'No Projects'}
+        <button type="button" >
+          <Link to="/addProject">Add</Link>
+        </button>
+        <ul>
+          {(projects.length > 0) ?
+            projects.map(project => (
+                <Link to={`/projects/${project.id}`} key={project.id}>
+                    <h4>{project.title}</h4>
+                    <p>Deadline: {project.deadline}</p>
+                </Link>
+            )) : 'No Projects'}
+        </ul>
       </div>
     )
   }
