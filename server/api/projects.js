@@ -19,14 +19,21 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.post('/addProject', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         const project = await Project.create(req.body)
         res.send(project)
     } catch (error) {
         next(error)
     }
-    
 })
+
+// router.get('/assignedRobot', async (req, res, next) => {
+//     try {
+//         const robots = 
+//     } catch (error) {
+//         next(error)
+//     }
+// })
 
 module.exports = router

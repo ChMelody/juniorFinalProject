@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../database')
 
-module.exports = db.define('project', {
+const Project = db.define('project', {
     title: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -29,3 +29,8 @@ module.exports = db.define('project', {
     }
 })
 
+// Project.assignedRobot = function () {
+//     return this.getRobot() ? this.getRobot() : console.log('No robot is assigned to this project')
+// }
+
+module.exports  = Project

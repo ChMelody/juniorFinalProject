@@ -35,7 +35,7 @@ const seed = async () => {
 
     // const robotPromise = robots.map(robot => Robot.create(robot))
     // const projectPromise = projects.map(project => Project.create(project))
-    
+      
     // await Promise.all([
     //   robotPromise,
     //   projectPromise

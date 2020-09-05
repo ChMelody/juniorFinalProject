@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../database')
 
-module.exports = db.define('robot', {
+const Robot = db.define('robot', {
     name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -28,3 +28,10 @@ module.exports = db.define('robot', {
         defaultValue: 100
     }
 })
+
+// Robot.findAllProjects
+
+
+// Robot.belongsTo
+
+module.exports = Robot

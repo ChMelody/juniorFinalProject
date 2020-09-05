@@ -14,6 +14,11 @@ const Robot = require('./models/Robot')
 Project.belongsToMany(Robot, {through: 'projectId'})
 Robot.belongsToMany(Project, {through: 'robotId'})
 
+// Project.belongsTo(Robot)
+// Project.hasMany(Robot)
+
+// Robot.belongsTo(Project)
+// Robot.hasMany(Project)
 
 module.exports = {
   db,

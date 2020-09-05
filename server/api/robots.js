@@ -23,12 +23,11 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         console.log('testing post: ', req.body)
-        const robot = await Robot.create(req.body)
-        res.send(robot)
+        const robotFromPost = await Robot.create(req.body)
+        res.send(robotFromPost)
     } catch (error) {
         next(error)
     }
-    
 })
 
 module.exports = router
