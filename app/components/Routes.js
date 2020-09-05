@@ -4,8 +4,10 @@ import AllProjects from './AllProjects'
 import AllRobots from './AllRobots'
 import SingleRobot from './SingleRobot'
 import SingleProject from './SingleProject'
-import CreateRobot from './CreateRobot';
+import CreateRobot from './CreateRobot'
 import CreateProject from './CreateProject'
+import UpdateRobot from './UpdateRobot'
+import UpdateProject from './UpdateProject'
 
 const Routes = () => {
   return (
@@ -23,7 +25,7 @@ const Routes = () => {
         <main>
           <h1>Welcome to StackBot Project Management</h1>
             <h3>Your robot employees are awaiting assignments!</h3>
-      
+
           <Switch>
             <Route exact path="/robots" component={AllRobots} />
             <Route exact path="/projects" component={AllProjects} />
@@ -31,6 +33,8 @@ const Routes = () => {
             <Route exact path="/projects/:id" component={SingleProject} />
             <Route exact path="/addRobot" component={CreateRobot} />
             <Route exact path="/addProject" component={CreateProject} />
+            <Route exact path="/robots/:id/updates" component={UpdateRobot} />
+            <Route exact path="/projects/:id/updates" component={UpdateProject} />
           </Switch>
         </main>
       </div>
