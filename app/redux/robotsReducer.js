@@ -1,12 +1,19 @@
 import axios from 'axios'
 
+// const setRobots = (data) => {
+//   return {
+//     type: 'SET_ROBOT',
+//     robots: data
+//   }
+// }
+
 // get all robots
 export const fetchRobots = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get('/api/robots')
       dispatch({
-        type: 'GET_ALL_ROBOTS',
+        type: 'SET_ROBOT',
         robots: data
       })
     } catch (error) {
@@ -18,11 +25,12 @@ export const fetchRobots = () => {
 export const addRobot = (robot) => {
   return async (dispatch) => {
     try {
-      const { addedRobot } = await axios.post('/api/robots/addRobot', robot)
+      const { data } = await axios.post('/api/robots', robot)
       dispatch({
         type: 'ADD_ROBOT',
-        robot: addedRobot
+        robot: data
       })
+      console.log('test in thunk: ', data)
     } catch (error) {
       console.error('Problem in addRobotReducer: ', error)
     }
@@ -36,7 +44,7 @@ const initialState = []
 // added to the Redux store with combineReducers
 const robotsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_ALL_ROBOTS':
+    case 'SET_ROBOT':
       return action.robots
 
     case 'ADD_ROBOT':

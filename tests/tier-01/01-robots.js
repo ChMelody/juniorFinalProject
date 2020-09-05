@@ -51,7 +51,7 @@ describe.only('Tier One: Robots', () => {
     mockAxios.onGet('/api/robots').replyOnce(200, robots);
   });
 
-  describe.only('<AllRobots /> component', () => {
+  describe('<AllRobots /> component', () => {
     const getRobotsSpy = sinon.spy();
     afterEach(() => {
       getRobotsSpy.resetHistory();
@@ -170,7 +170,7 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  describe('Connect: react-redux', () => {
+  xdescribe('Connect: react-redux', () => {
     // This test is expecting your component to dispatch a thunk after it mounts
     // Remember that getRobots prop from an earlier test? Now's a good time
     // for a mapDispatch.
@@ -211,7 +211,7 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  describe('Navigation', () => {
+  xdescribe('Navigation', () => {
     beforeEach(() => {
       sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
         return <div>{children}</div>;
@@ -240,7 +240,7 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  describe('Express API', () => {
+  xdescribe('Express API', () => {
     // Let's test our Express routes WITHOUT actually using the database.
     // By replacing the findAll methods on our Sequelize models with a spy,
     // we can ensure that our API tests won't fail just because
@@ -262,7 +262,7 @@ describe.only('Tier One: Robots', () => {
     });
   });
 
-  describe('Sequelize Model', () => {
+  xdescribe('Sequelize Model', () => {
     let robot;
     before(() => db.sync({ force: true }));
     beforeEach(() => {
@@ -328,7 +328,7 @@ describe.only('Tier One: Robots', () => {
       expect(defaultFuelLevelRobot.fuelLevel).to.equal(100);
     });
   });
-  describe('Seed File', () => {
+  xdescribe('Seed File', () => {
     // Once you've set up the Robot Sequelize model, it's a good time to seed
     // the database with some dummy data. Go edit seed.js. Note that the tests
     // run the seed file on the TEST database. When you're ready to interact

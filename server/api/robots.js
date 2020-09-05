@@ -20,10 +20,15 @@ router.get('/:id', async (req, res, next) => {
 })
 
 
-router.post('/addRobot', async (req, res, next) => {
-    await Robot.create(req.body)
-      .then(robot => res.json(robot))
-      .catch(next)
+router.post('/', async (req, res, next) => {
+    try {
+        console.log('testing post: ', req.body)
+        const robot = await Robot.create(req.body)
+        res.send(robot)
+    } catch (error) {
+        next(error)
+    }
+    
 })
 
 module.exports = router

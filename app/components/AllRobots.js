@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, Router } from 'react-router-dom'
 import { fetchRobots } from '../redux/robotsReducer';
 
 
@@ -8,34 +8,30 @@ import { fetchRobots } from '../redux/robotsReducer';
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllRobots extends React.Component {
-  constructor(){
-    super()
-    this.nextPath = this.nextPath.bind(this)
-  }
+
   componentDidMount(){
-    this.props.fetchRobots()
+    this.props.getRobots()
   }
 
-  nextPath() {
-    this.props.history.push('/robots/addRobot')
-  }
+  // nextPath() {
+  //   this.props.history.push('/robots/addRobot')
+  // }
 
   render() {
     const robots = this.props.robots
-    // console.log(this.props.history.nextPath)
+    console.log(this.props.robots)
     return (
           <div>
-              <button type="button" onClick={this.nextPath}>Add</button>
-
-            <ul>
-            {robots &&
-              robots.map(robot => (
-                  <Link to={`/robots/${robot.id}`} key={robot.id}>
-                      <img src={robot.imageUrl} />
-                      <div>{robot.name}</div>
-                  </Link>
-              ))}
-            </ul>
+              <button type="button" >Add</button>
+              <ul>
+              {(robots.length > 0) ?
+                robots.map(robot => (
+                    <Link to={`/robots/${robot.id}`} key={robot.id}>
+                        <img src={robot.imageUrl} />
+                        <div>{robot.name}</div>
+                    </Link>
+                )) : 'No Robots'}
+              </ul>
           </div>
     )
   }
@@ -46,7 +42,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-    fetchRobots: () => {
+    getRobots: () => {
       dispatch(fetchRobots())
     }
 })

@@ -11,7 +11,7 @@ const Routes = () => {
     <Router>
       <div>
         <nav>
-          <Link to="/">Home </Link>
+          <Link to="/">Home</Link>
           <ul>
             <Link to="/robots">Robots</Link>
           </ul>

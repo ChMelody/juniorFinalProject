@@ -15,14 +15,14 @@ class CreateRobot extends React.Component {
 
     handleChange (event) {
         this.setState({
-            name: event.target.value
+            name: event.targt.value
         })
     }
 
     async handleSubmit (event) {
         event.preventDefault()
         try {
-            await this.props.addRobot(this.state)
+            await this.props.addNew(this.state)
             this.setState({ name: '' })
         } catch (error) {
             console.error('Problem in handleSubmit: ', error)
@@ -41,7 +41,7 @@ class CreateRobot extends React.Component {
                     <input type="text" name="name" placeholder="Robot Name" onChange={this.handleChange} />
                 </div>
                 <br />
-                <button type="button">Add</button>
+                <button type="submit">Add</button>
                 </form>
             </div>
         )
@@ -55,12 +55,12 @@ class CreateRobot extends React.Component {
 // make props
 const mapDispatch = dispatch => {
     return {
-        addRobot: robot => {
+        addNew: robot => {
             dispatch(addRobot(robot))
-          },
-          fetchRobots: () => {
-              dispatch(fetchRobots())
           }
+        //   fetchRobots: () => {
+        //       dispatch(fetchRobots())
+        //   }
     }
 }
 

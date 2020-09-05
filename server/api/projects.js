@@ -20,10 +20,13 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.post('/addProject', async (req, res, next) => {
-    Project.create(req.body)
-      .then(project => res.json(project))
-      .catch(next)
+    try {
+        const project = await Project.create(req.body)
+        res.send(project)
+    } catch (error) {
+        next(error)
     }
-)
+    
+})
 
 module.exports = router
