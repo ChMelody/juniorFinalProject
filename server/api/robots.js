@@ -40,4 +40,15 @@ router.delete('/:id', async (req, res, next) => {
     }
 })
 
+router.put('/:id', async (req, res, next) => {
+    try {
+        const id = +req.params.id
+        const findRobot = await Robot.findByPk(id)
+        const updatedRobot = await findRobot.update(req.body)
+        res.send(updatedRobot)
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router
