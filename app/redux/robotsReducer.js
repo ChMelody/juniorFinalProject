@@ -37,13 +37,13 @@ export const addRobot = robot => {
   }
 }
 
-export const deleteRobot = index => {
+export const deleteRobot = id => {
   return async (dispatch) => {
     try {
-      await axios.delete('/api/robots', index)
+      await axios.delete(`/api/robots/${id}`)
       dispatch({
         type: 'DELETE_ROBOT',
-        id: index
+        id: id
       })
       const { data } = await axios.get('api/robots')
       dispatch(setRobots(data))
@@ -66,7 +66,8 @@ export default function robotsReducer (state = initialState, action) {
       return [...state, action.robot]
 
     case 'DELETE_ROBOT':
-      return [...state].splice(action, 1)
+      // return [...state].splice(action, 1)
+      return [...state].filter((robot, idx) => idx !== action.id)
 
     default:
       return state

@@ -30,15 +30,15 @@ class SingleProject extends React.Component {
     return (
         <div>
             <form action="GET" onSubmit={this.handleSubmit}>
-                <label>Project: {project.title}</label>
+                <label className="title">Project: {project.title}</label>
                 <br />
-                <label>Deadline: {project.deadline}</label>
+                <label className="content">Deadline: {project.deadline}</label>
                 <br />
-                <label>Priority: {project.priority}</label>
+                <label className="content">Priority: {project.priority}</label>
                 <br />
-                <label>Status: {(project.completed && 'Completed!') || 'Not Complete'}</label>
+                <label className="content">Status: {(project.completed && 'Completed!') || 'Not Complete'}</label>
                 <br />
-                <label>Description: {project.description}</label>
+                <label className="content">Description: {project.description}</label>
             </form>
         </div>
     )

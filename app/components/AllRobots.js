@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { fetchRobots } from '../redux/robotsReducer';
+import { fetchRobots, deleteRobot } from '../redux/robotsReducer';
 
 
 // Notice that we're exporting the AllRobots component twice. The named export
@@ -19,21 +19,30 @@ export class AllRobots extends React.Component {
 
   render() {
     const robots = this.props.robots
-    // console.log('!!', this.props.robots)
+    console.log('robots: ', this.props.removeRobot)
     return (
       <div>
           <button type="button" >
             <Link to="/addRobot">Add</Link>
           </button>
-          <ul>
+          <div>
           {(robots.length > 0) ?
             robots.map(robot => (
-                <Link to={`/robots/${robot.id}`} key={robot.id}>
+              <div key={robot.id} className="robot-container">
+                <Link to={`/robots/${robot.id}`} >
+                  <br />
                     <img src={robot.imageUrl} />
-                    <div>{robot.name}</div>
+                    <div className="title">{robot.name}</div>
+                  <br />
                 </Link>
-            )) : 'No Robots'}
-          </ul>
+                <button
+                      type="button"
+                      onClick={() => this.props.removeRobot(robot.id)}
+                    >X
+                  </button>
+              </div>
+          )) : 'No Robots'}
+          </div>
       </div>
     )
   }
@@ -46,6 +55,9 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
     getRobots: () => {
       dispatch(fetchRobots())
+    },
+    removeRobot: id => {
+      dispatch(deleteRobot(id))
     }
 })
 

@@ -6,20 +6,22 @@
 * {
   box-sizing: border-box;
   font-family: arial, sans-serif;
+  color: black
 }
 
 body {
-  background: linear-gradient(#ffffff, #c0c0c0);
+  background: #0b3c5da4;
+  color: black;
   height: 100vh;
-  padding: 0;
+  padding: 25px;
   margin: 0;
   width: 100vw;
 }
 
 nav {
   align-items: center;
-  background-color: #9da0c9;
-  color: #4e4949;
+  background-color: #1d2731b7;
+  color: rgba(159, 186, 231, 0.52);
   display: flex;
   height: 80px;
   padding: 10px;
@@ -30,4 +32,39 @@ main {
   display: flex; 
   flex-direction: column;
   justify-content: center;
+  color: rgba(159, 186, 231, 0.52)
+}
+
+button {
+  background-color: rgb(54, 59, 70);
+  color: rgb(155, 98, 98)
+}
+
+.robot-container {
+  background-color: #0B3C5D;
+  width: 500px;
+  padding: 25px;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.title {
+  color: #D9B310;
+  font-size-adjust: inherit;
+  font: bold;
+  font-size: 1.2em
+}
+
+.content {
+  font-size-adjust: inherit;
+  font-size: 90%
+}
+
+a {
+  color: rgba(118, 155, 243, 0.582);
+}
+
+a:hover {
+  color: rgb(141, 171, 223);
 }
