@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRobotById } from '../redux/singleRobotReducer';
+import { Link } from 'react-router-dom'
+import { fetchRobotById, updateRobot } from '../redux/singleRobotReducer';
 
 
 class SingleRobot extends React.Component {
@@ -14,10 +15,22 @@ class SingleRobot extends React.Component {
     return (
       <div>
         {robot && (
+<<<<<<< Updated upstream
           <div className="container">
             <h2 className="title">I am {robot.name}</h2>
+=======
+          <div>
+            <h3>
+              I am {robot.name}
+              <button type="button" >
+                <Link to="/updateRobot" />
+                Update
+              </button>
+            </h3>
+>>>>>>> Stashed changes
             <ul>Fuel Type: {robot.fuelType}</ul>
             <ul>Fuel Level: {robot.fuelLevel}</ul>
+            
             <img src={robot.imageUrl} />
           </div>
         )}
@@ -33,6 +46,9 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
     fetchRobotById: id => {
       dispatch(fetchRobotById(id))
+    },
+    updateRobot: (id, data) => {
+      dispatch(updateRobot(id, data))
     }
 })
 

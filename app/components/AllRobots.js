@@ -19,11 +19,12 @@ export class AllRobots extends React.Component {
 
   render() {
     const robots = this.props.robots
-    console.log('robots: ', this.props.removeRobot)
+    // console.log('robots: ', this.props.removeRobot)
     return (
       <div>
-          <button type="button" >
-            <Link to="/addRobot">Add</Link>
+          <button type="button">
+            <Link to="/addRobot" />
+            Add
           </button>
           <div>
           {(robots.length > 0) ?

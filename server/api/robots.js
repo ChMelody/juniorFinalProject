@@ -31,7 +31,7 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
     try {
-        const id = +req.params.id;
+        const id = +req.params.id
         const robotToDelete = await Robot.findByPk(id)
         await robotToDelete.destroy()
         res.sendStatus(204)

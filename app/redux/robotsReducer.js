@@ -66,7 +66,10 @@ export default function robotsReducer (state = initialState, action) {
       return [...state, action.robot]
 
     case 'DELETE_ROBOT':
+<<<<<<< Updated upstream
       // return [...state].splice(action, 1)
+=======
+>>>>>>> Stashed changes
       return [...state].filter(idToDelete => idToDelete !== action.id)
 
     default:

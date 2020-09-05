@@ -10,11 +10,12 @@ import { fetchProjects, deleteProject } from '../redux/projectsReducer'
 export class AllProjects extends React.Component {
 
   componentDidMount() {
-    this.props.fetchProjects()
+    this.props.gotProjects()
   }
 
   render() {
     const projects = this.props.projects
+
     return (
       <div>
         <button type="button">
@@ -24,6 +25,7 @@ export class AllProjects extends React.Component {
           {(projects.length > 0) ?
             projects.map(project => (
               <div key={project.id} className="container">
+<<<<<<< Updated upstream
                 <Link to={`/projects/${project.id}`}>
                   <br />
                   <button type="button" >
@@ -39,6 +41,18 @@ export class AllProjects extends React.Component {
                     onClick={() => this.props.removeProject(project.id)}
                   >X
                   </button>
+=======
+                <Link to={`/projects/${project.id}`} >
+                  <br />
+                <h2 className="title">{project.title}</h2>
+                <div>Deadline: {project.deadline}</div>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => this.props.removeProject(project.id)}
+                >X
+                </button>
+>>>>>>> Stashed changes
               </div>
           )) : 'No Projects'}
         </div>
@@ -52,7 +66,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  fetchProjects: () => {
+  gotProjects: () => {
     dispatch(fetchProjects())
   },
   removeProject: id => {

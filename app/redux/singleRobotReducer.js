@@ -30,6 +30,21 @@ export const updateReducer = (id, updatedRobot) => {
   }
 }
 
+export const updateRobot = (id, updatedData) => {
+  return async (dispatch) => {
+    try {
+      await axios.put(`/api/robots/${id}`, updatedData)
+      dispatch({
+        type: 'UPDATE_ROBOT',
+        robot: updatedData
+      })
+      dispatch(fetchRobotById(id))
+    } catch (error) {
+      console.error('Problem with updating', error)
+    }
+  }
+}
+
 const initialState = {
     robot: []
 }
@@ -40,7 +55,10 @@ const singleRobotReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_ROBOT_BY_ID':
       return {...state, robot: action.robot}
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     case 'UPDATE_ROBOT':
       return {...state, robot: action.robot}
     default:

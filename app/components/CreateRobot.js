@@ -39,7 +39,7 @@ class CreateRobot extends React.Component {
                 <form action="POST" onSubmit={this.handleSubmit}>
                     <label htmlFor="robot">
                         {!this.props.name && (
-                            <span>Robot name: </span>
+                            <span>Robot name:</span>
                         )}
                     </label>
                     <input type="text" name="name" onChange={this.handleChange} />

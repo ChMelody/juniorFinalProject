@@ -41,7 +41,11 @@ button {
 }
 
 .container {
+<<<<<<< Updated upstream
   background-color: #0B3C5D;
+=======
+  background-color: #0b3c5d8f;
+>>>>>>> Stashed changes
   width: 500px;
   padding: 25px;
   flex-direction: column;
