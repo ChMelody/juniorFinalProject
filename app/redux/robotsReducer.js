@@ -67,7 +67,7 @@ export default function robotsReducer (state = initialState, action) {
 
     case 'DELETE_ROBOT':
       // return [...state].splice(action, 1)
-      return [...state].filter((robot, idx) => idx !== action.id)
+      return [...state].filter(idToDelete => idToDelete !== action.id)
 
     default:
       return state

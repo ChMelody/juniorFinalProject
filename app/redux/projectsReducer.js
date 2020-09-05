@@ -33,6 +33,22 @@ export const addProject = (project) => {
   }
 }
 
+export const deleteProject = id => {
+  return async (dispatch) => {
+    try {
+      await axios.delete(`/api/projects/${id}`)
+      dispatch({
+        type: 'DELETE_PROJECT',
+        id: id
+      })
+      const { data } = await axios.get('api/projects')
+      dispatch(setProjects(data))
+    } catch (error) {
+      console.error('Problem deleting project: ', error)
+    }
+  }
+}
+
 const initialState = []
 
 // Take a look at app/redux/index.js to see where this reducer is
@@ -45,6 +61,8 @@ export default function projectsReducer(state = initialState, action) {
     case 'ADD_PROJECT':
       return [...state, action.project]
 
+    case 'DELETE_PROJECT':
+      return [...state].filter(idToDelete => idToDelete !== action.id)
     default:
       return state
   }

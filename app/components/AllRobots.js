@@ -28,18 +28,22 @@ export class AllRobots extends React.Component {
           <div>
           {(robots.length > 0) ?
             robots.map(robot => (
-              <div key={robot.id} className="robot-container">
+              <div key={robot.id} className="container">
                 <Link to={`/robots/${robot.id}`} >
                   <br />
-                    <img src={robot.imageUrl} />
                     <div className="title">{robot.name}</div>
-                  <br />
+                    <br />
+                    <button type="button" >
+                      <Link to={`/robots/${robot.id}/updates`}>Update Me</Link>
+                    </button>
+                    <br />
+                    <img src={robot.imageUrl} />
                 </Link>
                 <button
-                      type="button"
-                      onClick={() => this.props.removeRobot(robot.id)}
-                    >X
-                  </button>
+                  type="button"
+                  onClick={() => this.props.removeRobot(robot.id)}
+                >X
+                </button>
               </div>
           )) : 'No Robots'}
           </div>

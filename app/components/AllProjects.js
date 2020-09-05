@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchProjects } from '../redux/projectsReducer'
+import { fetchProjects, deleteProject } from '../redux/projectsReducer'
 
 
 // Notice that we're exporting the AllProjects component twice. The named export
@@ -17,18 +17,31 @@ export class AllProjects extends React.Component {
     const projects = this.props.projects
     return (
       <div>
-        <button type="button" >
+        <button type="button">
           <Link to="/addProject">Add</Link>
         </button>
-        <ul>
+        <div>
           {(projects.length > 0) ?
             projects.map(project => (
-                <Link to={`/projects/${project.id}`} key={project.id}>
-                    <h4>{project.title}</h4>
-                    <p>Deadline: {project.deadline}</p>
+              <div key={project.id} className="container">
+                <Link to={`/projects/${project.id}`}>
+                  <br />
+                  <button type="button" >
+                    <Link to={`/projects/${project.id}/updates`}>Update Me</Link>
+                  </button>
+                  <br />
+                  <h2 className="title">{project.title}</h2>
                 </Link>
-            )) : 'No Projects'}
-        </ul>
+                  <li>Deadline: {project.deadline}</li>
+                  <button
+                    type="button"
+                    align="right"
+                    onClick={() => this.props.removeProject(project.id)}
+                  >X
+                  </button>
+              </div>
+          )) : 'No Projects'}
+        </div>
       </div>
     )
   }
@@ -41,6 +54,9 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   fetchProjects: () => {
     dispatch(fetchProjects())
+  },
+  removeProject: id => {
+    dispatch(deleteProject(id))
   }
 })
 
