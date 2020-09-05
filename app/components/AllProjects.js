@@ -16,14 +16,14 @@ export class AllProjects extends React.Component {
     const projects = this.props.projects
     return (
       <div>
-        {projects &&
+        {(projects.length > 0) ?
           projects.map(project => (
             <Link to={`/projects/${project.id}`} key={project.id}>
                 <h4>Project: {project.title}</h4>
                 <p>deadline: {project.deadline}</p>
                 <br />
             </Link>
-          ))}
+          )) : 'No Projects'}
       </div>
     )
   }

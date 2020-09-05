@@ -19,7 +19,7 @@ export class AllRobots extends React.Component {
 
   render() {
     const robots = this.props.robots
-    console.log(this.props.robots)
+    // console.log(this.props.robots)
     return (
           <div>
               <button type="button" >Add</button>

@@ -15,7 +15,9 @@ class SingleRobot extends React.Component {
       <div>
         {robot && (
           <div>
-            <h3>{robot.name}</h3>
+            <h3>I am {robot.name}</h3>
+            <ul>Fuel Type: {robot.fuelType}</ul>
+            <ul>Fuel Level: {robot.fuelLevel}</ul>
             <img src={robot.imageUrl} />
           </div>
         )}
