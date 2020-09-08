@@ -55,10 +55,6 @@ const singleRobotReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_ROBOT_BY_ID':
       return {...state, robot: action.robot}
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     case 'UPDATE_ROBOT':
       return {...state, robot: action.robot}
     default:
