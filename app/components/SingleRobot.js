@@ -15,10 +15,6 @@ class SingleRobot extends React.Component {
     return (
       <div>
         {robot && (
-<<<<<<< Updated upstream
-          <div className="container">
-            <h2 className="title">I am {robot.name}</h2>
-=======
           <div>
             <h3>
               I am {robot.name}
@@ -27,7 +23,6 @@ class SingleRobot extends React.Component {
                 Update
               </button>
             </h3>
->>>>>>> Stashed changes
             <ul>Fuel Type: {robot.fuelType}</ul>
             <ul>Fuel Level: {robot.fuelLevel}</ul>
             
